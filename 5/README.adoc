@@ -1,4 +1,4 @@
-= lab 4.2
+= lab 5.2
 Nadeŭka <nadevko@riseup.net>
 v1.0, 2024-03-04
 
