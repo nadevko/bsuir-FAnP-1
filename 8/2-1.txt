@@ -1,0 +1,2 @@
+Введите выражение (int+int или double+doublei+double+doublei): 2+4
+Результат: 6
