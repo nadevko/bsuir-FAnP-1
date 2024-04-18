@@ -12,7 +12,7 @@ PDFS := $(foreach lab,$(LABS),$(DESTDIR)/report/lr-$(lab).pdf)
 
 ### Phony ######################################################################
 
-.PHONY: all dist-% clean clean-all clean-dist clean-build
+.PHONY: all run-% clean clean-% dist dist-%
 
 all: $(DESTDIR)
 
@@ -33,11 +33,22 @@ endef
 
 $(DESTDIR): $(OUTS) $(PDFS)
 
-### Build code #################################################################
+### Build and run code #########################################################
+
+define mk-lab =
+$(DESTDIR)/bin/$(1): $(1)/main.zig
+	zig build -p $(DESTDIR) -Dlab=$(1)
+
+test-$(1):
+	zig build test -p $(DESTDIR) -Dlab=$(1)
+endef
 
 define mk-lab =
 $(DESTDIR)/$(basename $(1)): | $(DESTDIR)/$(dir $(1)) $(1)
 	$(CXX) $(CXXFLAGS) -o $(DESTDIR)/$(basename $(1)) $(1)
+
+run-$(basename $(1)): $(DESTDIR)/$(basename $(1))
+	./$(DESTDIR)/$(basename $(1))
 endef
 
 $(foreach lab,$(LABS),$(eval $(call mk-dir,$(lab))))
