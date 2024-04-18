@@ -5,7 +5,7 @@ template <typename T> struct Sortable {
   size_t max;
   T *arr;
   auto operator[](size_t idx) { return arr[idx]; }
-  auto operator>(const Sortable<T> &rhs) { return arr[0] > rhs.arr[0]; }
+  auto operator>(const Sortable<T> &rhs) { return arr[max] > rhs.arr[max]; }
 };
 
 template <typename T> Sortable<T> *make_matrix(int cols, int rows) {
@@ -25,11 +25,11 @@ template <typename T> Sortable<T> *make_matrix(int cols, int rows) {
 }
 
 template <typename T> void print(Sortable<T> *arr, int cols, int rows) {
-  for (auto row = 0; row < rows; row++) {
-    cout << endl;
-    for (auto col = 0; col < cols; col++)
-      cout << arr[col][row] << " ";
-  }
+  for (auto row = 0; row < rows; row++)
+    for (auto col = 0; col < cols;) {
+      cout << arr[col][row];
+      cout << ((++col == cols) ? "\n" : " ");
+    }
 }
 
 template <typename T> void shaker(T *arr, int left, int right) {
