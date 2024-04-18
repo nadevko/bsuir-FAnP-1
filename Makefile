@@ -36,14 +36,6 @@ $(DESTDIR): $(OUTS) $(PDFS)
 ### Build and run code #########################################################
 
 define mk-lab =
-$(DESTDIR)/bin/$(1): $(1)/main.zig
-	zig build -p $(DESTDIR) -Dlab=$(1)
-
-test-$(1):
-	zig build test -p $(DESTDIR) -Dlab=$(1)
-endef
-
-define mk-lab =
 $(DESTDIR)/$(basename $(1)): | $(DESTDIR)/$(dir $(1)) $(1)
 	$(CXX) $(CXXFLAGS) -o $(DESTDIR)/$(basename $(1)) $(1)
 
