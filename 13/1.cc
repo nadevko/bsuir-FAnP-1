@@ -16,14 +16,12 @@ public:
     rank = 0;
     enum precedence prev = sum;
     for (auto symbol : infix) {
-      if (checked) {
-        enum precedence current = precedence[symbol];
+      enum precedence current = precedence[symbol];
+      if (checked && !isspace(symbol) && current != open && current != close) {
         switch (prev) {
         case operand:
           if (current == operand)
             throw new runtime_error("Операнд после операнда");
-          break;
-        case open | close:
           break;
         default:
           if (current != operand)
@@ -84,7 +82,7 @@ private:
   }
   void push(char symbol) { shunting.push(symbol); }
   void push(char symbol, enum precedence prec) {
-    while (!shunting.empty() && prec <= precedence[shunting.top()])
+    while (!shunting.empty() && prec < precedence[shunting.top()])
       pop();
     push(symbol);
   }
