@@ -5,17 +5,35 @@
 
 using namespace std;
 
-class ShuntingYard {
+template <bool checked = true> class ShuntingYard {
 public:
-  static string run(const string &input) {
+  static string run(string input) {
     return (new ShuntingYard)->to_postfix(input);
   }
   string to_postfix(string infix) {
     shunting = {};
     postfix = "";
     rank = 0;
-    for (auto symbol : infix)
+    enum precedence prev = sum;
+    for (auto symbol : infix) {
+      if (checked) {
+        enum precedence current = precedence[symbol];
+        switch (prev) {
+        case operand:
+          if (current == operand)
+            throw new runtime_error("Операнд после операнда");
+          break;
+        case open | close:
+          break;
+        default:
+          if (current != operand)
+            throw new runtime_error("Оператор после оператора");
+          break;
+        }
+        prev = current;
+      }
       parse(symbol);
+    }
     while (!shunting.empty())
       pop();
     if (postfix != "" && rank > 1)
@@ -77,7 +95,7 @@ int main() {
   string str;
   getline(cin, str);
   try {
-    auto postfix = ShuntingYard::run(str);
+    auto postfix = ShuntingYard<true>::run(str);
     cout << "Постфиксная форма: " << postfix << endl;
   } catch (const runtime_error *err) {
     cout << "Ошибка: " << err->what() << endl;
