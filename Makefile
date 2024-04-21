@@ -4,7 +4,7 @@ LABS ?= $(foreach lab,$(filter-out dist/,$(sort $(dir $(wildcard */)))),$(lab:/=
 CC ?= gcc
 CXX ?= g++
 CFLAGS ?= -pedantic-errors -Wall -Wextra -Werror -Ofast
-CXXFLAGS ?= $(CFLAGS)
+CXXFLAGS ?= $(CFLAGS) -std=c++20
 
 CCS := $(foreach lab,$(LABS),$(wildcard $(lab)/*.cc))
 OUTS := $(foreach cc,$(CCS),$(DESTDIR)/$(basename $(cc)))
