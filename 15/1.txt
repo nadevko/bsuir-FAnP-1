@@ -1,0 +1,55 @@
+| m66izCCCK2D3OR6U |  806 |      2 |
+| 47727p3l5tM8uEXB | 1402 |      1 |
+| 4KHOd230N5Twc7he | 1356 |      2 |
+| 3ydf93NhO0g53fQ3 |  359 |      5 |
+| E7vV5gCt0gYBvF`D |  264 |     12 |
+| 7I33tsV52EiuPLcE | 1744 |      8 |
+| q056`U`5Y31trF4E |  120 |      6 |
+| BbQY8782wmAJ8a2h | 4397 |      2 |
+| Fd66P83j6iQm4_GK | 1609 |      6 |
+| DBovIFo4Or1BAiK7 | 2447 |      1 |
+| 2adH3uYTZFDAmC4c | 1556 |      1 |
+| 2I9a58bBPki5k3m3 | 3896 |      2 |
+| L8v9t593g3Oo7`pB | 3097 |      2 |
+| 2M7PE12VE3G_QqQI | 4714 |      1 |
+| eam5GxDG6W16eB74 | 3142 |      2 |
+| v421eEm3oJu1lxC4 | 4849 |      1 |
+| 473873E90VM4eOk8 | 2711 |      3 |
+| Ik10CZ9Gdq8G0hfa | 5853 |      1 |
+| iE832G0LNe6xcpA9 |  758 |      5 |
+| roJcIX3uFKL2C3Z1 |  192 |      5 |
+| 77k3F_8wj8b6e9E8 |  134 |      6 |
+| fwqJ0qc_ty8HELB1 | 5893 |      1 |
+| n77EIz6fk7w`O4Hu |  970 |      2 |
+| 2I0TI1d6O54rfqUA | 1159 |      4 |
+| 2jq6APC2_4dUjf4O | 2130 |      2 |
+| O3`A30F8BHFBG2B4 | 1646 |      2 |
+| v01GmpF66MqsR031 |  654 |      2 |
+| NDaK5mS48tsiFDZb |  318 |      4 |
+| plc8bi7w7vyGIez4 | 1583 |      4 |
+| 2v50BJCdlBbn2v7K | 1136 |      2 |
+| eI63yfwb2ENbfC87 | 1716 |      4 |
+| Ju1Eo2C1BkG1LByb | 4283 |      1 |
+| 5rqw0bAw8F9M254V |  140 |      4 |
+| Df`3wC2k6cMHrII4 |  644 |      6 |
+| b6oG`3T_cEXw_KM0 | 2179 |      2 |
+| eY2MF15HcBv4pbo0 | 2477 |      5 |
+| 6QtP8CfJLZ12d34g | 3370 |      1 |
+| b8pnW2gQEWfJQB7j |  351 |      1 |
+| XJ3_Y8enaLSu9G51 | 2031 |      3 |
+| TeC0T5qTa7fq525R |  106 |      9 |
+| 40Wav1xA2T8O422K |  588 |      2 |
+| 0Imi9tGVaUF1H6`I | 3240 |      2 |
+| c8Rwb8jhlv2o8P62 | 1795 |      1 |
+| Dj2THfN6CvwN1AeQ |  615 |      4 |
+| 28lC76eX`m4aDO_H | 2612 |      6 |
+| hknBL62AgZq0GYM7 | 1067 |      7 |
+| 7gp6tT00iLHk3pji |  558 |      4 |
+| 7b44m3nwb_bF751B |  294 |      5 |
+| Bn3c1rB99ff11M33 | 1658 |      5 |
+| g4u9O2WSxaS1140r | 3578 |      1 |
+|       ключ       | знач | кол-во |
+Было использовано 1695 ячеек
+Средняя глубина: 3.53982
+Введите ключ: g4u9O2WSxaS1140r
+3578
