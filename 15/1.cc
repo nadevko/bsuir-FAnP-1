@@ -53,7 +53,6 @@ public:
     Iterator() {}
     Iterator(pointer p, pointer s) : ptr(p), start(p), stop(s) {}
     reference operator*() const {
-      ptr++;
       return *ptr;
     }
     auto &operator++() {
