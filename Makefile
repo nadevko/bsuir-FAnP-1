@@ -39,6 +39,7 @@ define mk-lab =
 $(DESTDIR)/$(basename $(1)): | $(DESTDIR)/$(dir $(1)) $(1)
 	$(CXX) $(CXXFLAGS) -o $(DESTDIR)/$(basename $(1)) $(1)
 
+.PHONY: run-$(basename $(1))
 run-$(basename $(1)): $(DESTDIR)/$(basename $(1))
 	./$(DESTDIR)/$(basename $(1))
 endef
@@ -51,7 +52,7 @@ $(foreach cc,$(CCS),$(eval $(call mk-lab,$(cc))))
 
 define mk-report =
 $(1)/build/report.pdf: $(1)/report.tex
-	-cd $(1) && latexmk -synctex=1 -interaction=nonstopmode -file-line-error -xelatex -shell-escape -outdir=build -f report.tex
+	-cd $(1) && latexmk -synctex=1 -interaction=nonstopmode -file-line-error -lualatex -shell-escape -outdir=build -f report.tex
 
 $(DESTDIR)/report/lr-$(1).pdf: | $(DESTDIR)/report/ $(1)/build/report.pdf
 	@cp --verbose $(1)/build/report.pdf $(DESTDIR)/report/lr-$(1).pdf

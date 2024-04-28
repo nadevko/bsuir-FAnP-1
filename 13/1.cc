@@ -1,11 +1,12 @@
+#include <iomanip>
 #include <iostream>
 #include <map>
 #include <stack>
-#include <stdexcept>
 
 using namespace std;
 
-template <bool checked = true> class ShuntingYard {
+template <const bool checked = false, const bool ksis = false>
+class ShuntingYard {
 public:
   static string run(string input) {
     return (new ShuntingYard)->to_postfix(input);
@@ -14,6 +15,8 @@ public:
     shunting = {};
     postfix = "";
     rank = 0;
+    length = infix.length();
+
     enum precedence prev = sum;
     for (auto symbol : infix) {
       enum precedence current = precedence[symbol];
@@ -36,6 +39,7 @@ public:
       pop();
     if (postfix != "" && rank > 1)
       throw new runtime_error("Операндов больше, чем операций");
+    cout << "| ␄ |     | " << setw(length) << postfix << " |\n";
     return postfix;
   }
 
@@ -47,6 +51,7 @@ private:
   stack<char> shunting;
   uint rank;
   string postfix;
+  size_t length;
 
   void parse(char symbol) {
     switch (precedence[symbol]) {
@@ -73,6 +78,8 @@ private:
       push(symbol, precedence[symbol]);
       break;
     }
+    cout << "| " << symbol << " | " << setw(3) << rank << " | " << setw(length)
+         << postfix << " |\n";
   }
   void pop() {
     if (--rank < 1)
@@ -82,7 +89,8 @@ private:
   }
   void push(char symbol) { shunting.push(symbol); }
   void push(char symbol, enum precedence prec) {
-    while (!shunting.empty() && prec < precedence[shunting.top()])
+    while (!shunting.empty() && ((ksis) ? prec < precedence[shunting.top()]
+                                        : prec <= precedence[shunting.top()]))
       pop();
     push(symbol);
   }
@@ -93,7 +101,7 @@ int main() {
   string str;
   getline(cin, str);
   try {
-    auto postfix = ShuntingYard<true>::run(str);
+    auto postfix = ShuntingYard<true, true>::run(str);
     cout << "Постфиксная форма: " << postfix << endl;
   } catch (const runtime_error *err) {
     cout << "Ошибка: " << err->what() << endl;
