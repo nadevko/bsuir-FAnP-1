@@ -1,2 +1,33 @@
-Введите выражение: (a+b-d*c*c*d)^n^k-a+a-v/w/(a+f/s^x) 
-Постфиксная форма: ab+dc*c*d*-n^k^a-a+vw/afsx^/+/-
+
+Введите выражение: (a+b-d*c*c*d)/n*k-a*(a+f/s+x)
+| ( |   0 |                               |
+| a |   1 |                             a |
+| + |   1 |                             a |
+| b |   2 |                            ab |
+| - |   2 |                            ab |
+| d |   3 |                           abd |
+| * |   3 |                           abd |
+| c |   4 |                          abdc |
+| * |   4 |                          abdc |
+| c |   5 |                         abdcc |
+| * |   5 |                         abdcc |
+| d |   6 |                        abdccd |
+| ) |   1 |                   abdccd***-+ |
+| / |   1 |                   abdccd***-+ |
+| n |   2 |                  abdccd***-+n |
+| * |   2 |                  abdccd***-+n |
+| k |   3 |                 abdccd***-+nk |
+| - |   1 |               abdccd***-+nk*/ |
+| a |   2 |              abdccd***-+nk*/a |
+| * |   2 |              abdccd***-+nk*/a |
+| ( |   2 |              abdccd***-+nk*/a |
+| a |   3 |             abdccd***-+nk*/aa |
+| + |   3 |             abdccd***-+nk*/aa |
+| f |   4 |            abdccd***-+nk*/aaf |
+| / |   4 |            abdccd***-+nk*/aaf |
+| s |   5 |           abdccd***-+nk*/aafs |
+| + |   4 |          abdccd***-+nk*/aafs/ |
+| x |   5 |         abdccd***-+nk*/aafs/x |
+| ) |   3 |       abdccd***-+nk*/aafs/x++ |
+| ␄ |     |     abdccd***-+nk*/aafs/x++*- |
+Постфиксная форма: abdccd***-+nk*/aafs/x++*-

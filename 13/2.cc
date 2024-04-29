@@ -5,9 +5,9 @@ int main() {
   string str;
   getline(cin, str);
   try {
-    ShuntingYard<int, true, true> shunting;
-    auto result = shunting.parse(str);
-    cout << "Постфиксная форма: " << result << endl;
+    ShuntingYard<int> shunting;
+    auto result = shunting.calc(str);
+    cout << "Результат: " << result << endl;
   } catch (const runtime_error &err) {
     cout << "Ошибка: " << err.what() << endl;
   }
