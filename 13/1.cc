@@ -1,4 +1,4 @@
-#include "shunting.cc"
+#include "lib/shunting.cc"
 
 int main() {
   cout << "Введите выражение: ";
