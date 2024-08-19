@@ -1,11 +1,22 @@
 {
   pkgs ? import <nixpkgs> { overlays = [ (import <bsuir-tex/nixpkgs>) ]; },
 }:
-pkgs.mkShell {
+with pkgs;
+mkShell rec {
   name = "FAnP-1";
+
+  vscode-settings = writeText "settings.json" (
+    builtins.toJSON { "clangd.path" = "${pkgs.clang-tools}/bin/clangd"; }
+  );
+
   packages = [
-    (pkgs.texliveSmall.withPackages (_: with pkgs.texlivePackages; [ bsuir-tex ]))
-    pkgs.python312Packages.pygments
-    pkgs.inkscape-with-extensions
+    (texliveSmall.withPackages (_: with texlivePackages; [ bsuir-tex ]))
+    python312Packages.pygments
+    inkscape-with-extensions
   ];
+
+  shellHook = ''
+    mkdir .vscode &>/dev/null
+    cp ${vscode-settings} .vscode/settings.json
+  '';
 }
