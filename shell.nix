@@ -1,8 +1,11 @@
 {
-  pkgs ? import <nixpkgs> { },
+  pkgs ? import <nixpkgs> { overlays = [ (import <bsuir-tex/nixpkgs>) ]; },
 }:
-with pkgs;
-mkShell {
+pkgs.mkShell {
   name = "FAnP-1";
-  packages = [ ];
+  packages = [
+    (pkgs.texliveSmall.withPackages (_: with pkgs.texlivePackages; [ bsuir-tex ]))
+    pkgs.python312Packages.pygments
+    pkgs.inkscape-with-extensions
+  ];
 }
